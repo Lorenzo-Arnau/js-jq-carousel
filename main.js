@@ -3,49 +3,61 @@ $(document).ready(function(){
 
 // funzione on click freccia sinistra carousel
 $('.prev').click(function(){
-  $('img.active').removeClass('active').prev().addClass('active');
-  $('i.active').removeClass('active').prev().addClass('active');
-  if ($('img.active').hasClass('first') === true) {
-    $('img.first').removeClass('active');
-    $('img.last').addClass('active');
-    $('i.first').removeClass('active')
-    $('i.last').addClass('active');
+  var imgAttiva = $('img.active') ;
+  var iAttiva = $('i.active') ;
+  imgAttiva.removeClass('active');
+  iAttiva.removeClass('active');
+  if (imgAttiva.hasClass('first') === true) {
+      $('img.last').addClass('active');
+      $('i.last').addClass('active');
+    }else {
+    imgAttiva.prev().addClass('active');
+    iAttiva.prev().addClass('active');
   }
 });
 // funzione on click freccia destra carousel
   $('.next').click(function(){
-    $('img.active').removeClass('active').next().addClass('active');
-    $('i.active').removeClass('active').next().addClass('active');
-    if ($('img.active').hasClass('last') === true) {
-      $('img.last').removeClass('active');
+    var imgAttiva = $('img.active') ;
+    var iAttiva = $('i.active') ;
+    imgAttiva.removeClass('active');
+    iAttiva.removeClass('active');
+    if (imgAttiva.hasClass('last') === true) {
       $('img.first').addClass('active');
-      $('i.last').removeClass('active')
       $('i.first').addClass('active');
+    }else {
+      imgAttiva.next().addClass('active');
+      iAttiva.next().addClass('active');
     }
   });
 
 // funzione on click frecce tastiera
   $("body").keydown(function(e) {
     if(e.keyCode == 37) { // sinistra
-      $('img.active').removeClass('active').prev().addClass('active');
-      $('i.active').removeClass('active').prev().addClass('active');
-      if ($('img.active').hasClass('first') === true) {
-        $('img.first').removeClass('active');
-        $('img.last').addClass('active');
-        $('i.first').removeClass('active')
-        $('i.last').addClass('active');
+      var imgAttiva = $('img.active') ;
+      var iAttiva = $('i.active') ;
+      imgAttiva.removeClass('active');
+      iAttiva.removeClass('active');
+      if (imgAttiva.hasClass('first') === true) {
+          $('img.last').addClass('active');
+          $('i.last').addClass('active');
+        }else {
+        imgAttiva.prev().addClass('active');
+        iAttiva.prev().addClass('active');
       }
     }
     if(e.keyCode == 39) { // destra
-      $('img.active').removeClass('active').next().addClass('active');
-      $('i.active').removeClass('active').next().addClass('active');
-      if ($('img.active').hasClass('last') === true) {
-        $('img.last').removeClass('active');
-        $('img.first').addClass('active');
-        $('i.last').removeClass('active')
-        $('i.first').addClass('active');
-      }
-    }
+        var imgAttiva = $('img.active') ;
+        var iAttiva = $('i.active') ;
+        imgAttiva.removeClass('active');
+        iAttiva.removeClass('active');
+        if (imgAttiva.hasClass('last') === true) {
+          $('img.first').addClass('active');
+          $('i.first').addClass('active');
+        }else {
+          imgAttiva.next().addClass('active');
+          iAttiva.next().addClass('active');
+        }
+      }    
   });
 
 
